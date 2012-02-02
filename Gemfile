@@ -35,3 +35,9 @@ group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
 end
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+  gem "factory_girl_rails"
+  gem "shoulda-matchers"
+end
