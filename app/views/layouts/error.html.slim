@@ -1,0 +1,10 @@
+doctype html
+html
+  body
+    =render '/header'
+    div[id="content" class="ui-corner-right right"]
+      fieldset
+        legend Something fucked up
+        p =@error
+
+        span[class="back-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only back-button right"] Back

@@ -1,4 +1,10 @@
 Shaolin::Application.routes.draw do
+  get "language/list"
+  post "language/update"
+  get "language/details"
+  match "language/new" => "language#details"
+  match "language/:id" => "language#details"
+
   root :to => 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

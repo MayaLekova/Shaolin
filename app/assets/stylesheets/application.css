@@ -3,7 +3,7 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require jquery-ui-1.8.17.custom.css
+ *= require smoothness
  *= require_tree . 
 */
 
@@ -28,20 +28,27 @@ body {
   text-align: center;
 }
 
+.none {
+  display: none;
+}
+
+.mandatory-field:after {
+  content: "*";
+}
+
 header > div {
   text-align: center;
 }
 
 div#content {
-  background-color: #ddd;
   width: 82%;
   padding-left: 4%;
   padding-right: 4%;
-  padding-top: 10px;
 }
 
 nav.main-menu {
   width: 10%;
+  padding-top: 18px;
 }
 
 nav.main-menu a {
@@ -54,10 +61,38 @@ nav.main-menu a {
   width: 100%;
 }
 
-nav.main-menu a:visited {
-}
 
 nav.main-menu a:hover {
   background-color: #ddd;
   color: #fff;
+}
+
+.simple-form .field {
+  width: 80%;
+}
+
+div.text-container {
+  height: 40px;
+  text-align: right;
+}
+
+form {
+  background-color: #ddd;
+  padding: 30px;
+}
+
+form input.text-input {
+  width: 70%;
+  float: right;
+}
+
+form label {
+  text-align: right;
+  width: 29%;
+  padding-right: 5px;
+  vertical-align: middle;
+}
+
+form .submit-button, form .back-button {
+  margin: 0px 5px 0px 5px;
 }
