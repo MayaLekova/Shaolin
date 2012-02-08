@@ -1,14 +1,9 @@
-doctype html
-html
-  body
-    =render '/header'
-    div[id="content" class="ui-corner-right right"]
-      ul
-        -for language in @languages do
-          li 
-            a[href="#{language.id}"] =language.name
+ul
+  -for language in @languages do
+    li 
+      a[href="#{language.id}"] =language.name
 
 
-      label
-        a[href="new"] Add new
-        span[class="ui-icon ui-icon-plus left"]
+label
+  a[href="new"] Add new
+  span[class="ui-icon ui-icon-plus left"]

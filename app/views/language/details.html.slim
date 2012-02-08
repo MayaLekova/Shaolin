@@ -1,45 +1,40 @@
-doctype html
-html
-  body
-    =render '/header'
-    div[id="content" class="ui-corner-right right"]
-      h3 Language cofiguration for #{@language.name}
-      form[method="POST" action="update"]
-        == text_input({\
-                       id: "id",\
-                       label: "",\ 
-                       initial_value: @language.id,\
-                       hidden: true,\
-            })
+h3 Language cofiguration for #{@language.name}
+form[method="POST" action="update"]
+  == text_input({\
+                 id: "id",\
+                 label: "",\ 
+                 initial_value: @language.id,\
+                 hidden: true,\
+      })
 
-        == text_input({\
-                       id: "name",\
-                       label: "Name",\
-                       initial_value: @language.name,\
-                       mandatory: true,\
-            })
+  == text_input({\
+                 id: "name",\
+                 label: "Name",\
+                 initial_value: @language.name,\
+                 mandatory: true,\
+      })
 
-        == text_input({\
-                       id: "description",\
-                       label: "Description",\
-                       initial_value: @language.description,\
-            })
+  == text_input({\
+                 id: "description",\
+                 label: "Description",\
+                 initial_value: @language.description,\
+      })
 
-        == text_input({\
-                       id: "execution_command_format",\
-                       label:"Execution command format",\
-                       initial_value: @language.execution_command_format,\
-                       mandatory: true,\
-                       validators: {contains: ['%{input_filename}', '%{output_filename}']}.to_json,\
-                      })
+  == text_input({\
+                 id: "execution_command_format",\
+                 label:"Execution command format",\
+                 initial_value: @language.execution_command_format,\
+                 mandatory: true,\
+                 validators: {contains: ['%{input_filename}', '%{output_filename}']}.to_json,\
+                })
 
-        == text_input({\
-                       id: "source_file_extension",\
-                       label: "Source file extension",\
-                       initial_value: @language.source_file_extension,\
-                       mandatory: true,\
-            })
+  == text_input({\
+                 id: "source_file_extension",\
+                 label: "Source file extension",\
+                 initial_value: @language.source_file_extension,\
+                 mandatory: true,\
+      })
 
-        div        
-          span[class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only back-button right"] Cancel
-          span[class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only right submit-button"] Save
+  div        
+    span[class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only back-button right"] Cancel
+    span[class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only right submit-button"] Save
