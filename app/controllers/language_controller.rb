@@ -23,7 +23,7 @@ class LanguageController < ApplicationController
         @language.save
       else
         @error = "Watch out! We got a badass over here!"
-        render "layouts/error.html.slim"
+        render "layouts/error.html.slim" and return
       end
     end
 
