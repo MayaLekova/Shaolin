@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :lesson do
-    title "MyString"
-    description "MyText"
+    topic "MyString"
+    body "MyText"
     points 1
     language_id 1
     number 1

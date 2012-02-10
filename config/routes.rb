@@ -1,8 +1,12 @@
 Shaolin::Application.routes.draw do
-  get "lesson/list"
-  get "lesson/create"
-  get "lesson/update"
-  get "lesson/details"
+  #~ get "lesson/list"
+  #~ post "lesson/create"
+  #~ get "lesson/update"
+  #~ get "lesson/details"
+  #~ match "lesson/new" => "lesson#details"
+  #~ match "lesson/:id" => "lesson#details"
+  
+  resources :lesson
 
   get "language/list"
   post "language/update"
@@ -10,8 +14,8 @@ Shaolin::Application.routes.draw do
   match "language/new" => "language#details"
   match "language/:id" => "language#details"
 
-  get "lesson/list"
-
+  #~ get "lesson/list"
+  
   root :to => 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
