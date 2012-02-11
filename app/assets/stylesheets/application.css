@@ -12,6 +12,10 @@ body {
   font-size: 16px;
 }
 
+div {
+  overflow: auto;
+}
+
 .left {
   display: inline;
   position: relative;
@@ -81,7 +85,7 @@ form {
   padding: 30px;
 }
 
-form input.text-input {
+.field input, .field textarea {
   width: 70%;
   float: right;
 }
@@ -97,7 +101,16 @@ form .submit-button, form .back-button {
   margin: 0px 5px 0px 5px;
 }
 
-#main {
-  width: 100%;
-  overflow: auto;
+.list-table {
+  width: 90%;
+  margin: auto;
+  border-spacing: 0px;
+}
+
+.list-table td {
+  border: 1px solid;
+}
+
+.list-table th {
+  background-color: #ddd;
 }
