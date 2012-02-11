@@ -4,6 +4,7 @@ html
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    title Shaolin
   body
     header
       div[class="ui-helper-clearfix"]
@@ -12,8 +13,8 @@ html
     div[id="main"]
       nav[class="main-menu centered left"]
         a[class="ui-corner-all" href='/'] Home
-        a[class="ui-corner-all" href='/lesson/list'] Lessons
-        a[class="ui-corner-all" href='/language/list'] Languages
+        a[class="ui-corner-all" href='/lessons'] Lessons
+        a[class="ui-corner-all" href='/languages'] Languages
 
       div[id="content" class="ui-corner-right right"]
         = yield
