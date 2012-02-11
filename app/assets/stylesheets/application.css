@@ -96,3 +96,8 @@ form label {
 form .submit-button, form .back-button {
   margin: 0px 5px 0px 5px;
 }
+
+#main {
+  width: 100%;
+  overflow: auto;
+}

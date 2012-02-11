@@ -9,10 +9,13 @@ html
       div[class="ui-helper-clearfix"]
         img[src=path_to_image("header.png") class="header"]
     
-    nav[class="main-menu centered left"]
-      a[class="ui-corner-all" href='/'] Home
-      a[class="ui-corner-all" href='/lesson/list'] Lessons
-      a[class="ui-corner-all" href='/language/list'] Languages
+    div[id="main"]
+      nav[class="main-menu centered left"]
+        a[class="ui-corner-all" href='/'] Home
+        a[class="ui-corner-all" href='/lesson/list'] Lessons
+        a[class="ui-corner-all" href='/language/list'] Languages
 
-    div[id="content" class="ui-corner-right right"]
-      = yield
+      div[id="content" class="ui-corner-right right"]
+        = yield
+
+    footer
