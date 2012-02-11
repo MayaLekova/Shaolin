@@ -6,13 +6,13 @@ Shaolin::Application.routes.draw do
   #~ match "lesson/new" => "lesson#details"
   #~ match "lesson/:id" => "lesson#details"
   
-  resources :lesson
+  #~resources :lesson
 
-  get "language/list"
-  post "language/update"
-  get "language/details"
-  match "language/new" => "language#details"
-  match "language/:id" => "language#details"
+  #~get "language/list"
+  #~post "language/update"
+  #~get "language/details"
+  #~match "language/new" => "language#details"
+  #~match "language/:id" => "language#details"
 
   #~ get "lesson/list"
   
