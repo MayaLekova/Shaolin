@@ -1,4 +1,6 @@
 Shaolin::Application.routes.draw do
+  resources :languages
+
   #~ get "lesson/list"
   #~ post "lesson/create"
   #~ get "lesson/update"

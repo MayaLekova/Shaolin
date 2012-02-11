@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  b Name:
+  = @language.name
+p
+  b Description:
+  = @language.description
+p
+  b Command:
+  = @language.command
+p
+  b File extension:
+  = @language.file_extension
+p
+  b Wrapping code:
+  = @language.wrapping_code
+
+= link_to 'Edit', edit_language_path(@language)
+'|
+= link_to 'Back', languages_path
