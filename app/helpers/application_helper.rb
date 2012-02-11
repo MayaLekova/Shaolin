@@ -18,11 +18,14 @@ module ApplicationHelper
     html % properties
   end
 
-  def list_resources(resources)
+  def list_resources(resources, fields)
     html = "<ul>\n"
-    resources.map do |resource|
+    resources.each do |resource|
       html << "    <li>" 
-      html << "        <a href=\"#{resource.id}\"> #{resource.name} </a>"
+      html << "        <a href=\"#{resource.id}\"> #{resource.send(fields[0])} </a>"
+      fields.slice(1, fields.size - 1).each do |field|
+        html << "        <span> - #{resource.send(field)} </span>"
+      end
       html << "    </li>"
     end
     html << "</ul>"
