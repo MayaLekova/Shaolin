@@ -10,6 +10,10 @@ describe "lessons/show" do
     ))
   end
 
+  before do
+    Language.stub(:find).and_return Factory :language
+  end
+
   it "renders attributes in <p>" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers

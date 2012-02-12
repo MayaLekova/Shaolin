@@ -24,9 +24,12 @@ describe LessonsController do
   # Lesson. As you add validations to Lesson, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {
+      title: 'lesson title',
+      language_id: 1,
+    }
   end
-  
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # LessonsController. Be sure to keep this updated too.
@@ -34,8 +37,13 @@ describe LessonsController do
     {}
   end
 
+  before do
+    Language.stub(:find).and_return Factory :language
+  end
+
   describe "GET index" do
     it "assigns all lessons as @lessons" do
+      
       lesson = Lesson.create! valid_attributes
       get :index, {}, valid_session
       assigns(:lessons).should eq([lesson])

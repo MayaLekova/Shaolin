@@ -18,6 +18,10 @@ describe "lessons/index" do
     ])
   end
 
+  before do
+    Language.stub(:find).and_return Factory :language
+  end
+
   it "renders a list of lessons" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers

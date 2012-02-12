@@ -24,7 +24,10 @@ describe LanguagesController do
   # Language. As you add validations to Language, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {
+      name: 'language name',
+      command: 'dedo %{source_file} > %{output_file}'
+    }
   end
   
   # This should return the minimal set of values that should be in the session
