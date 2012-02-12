@@ -69,10 +69,9 @@ nav.main-menu a {
   width: 100%;
 }
 
-
 nav.main-menu a:hover {
-  background-color: #ddd;
-  color: #fff;
+    background-color: #ddd;
+    color: #fff;
 }
 
 .simple-form .field {
@@ -111,10 +110,24 @@ form .submit-button, form .back-button {
   border-spacing: 0px;
 }
 
+.list-table td:last-child, .list-table th:last-child {
+  border-right: 1px solid;
+}
+
 .list-table td {
-  border: 1px solid;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .list-table th {
   background-color: #ddd;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+
+button.ui-button .ui-button-text-only {
+  background: none;
+  text-decoration: none;
+  color: #000;
 }
