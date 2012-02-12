@@ -17,6 +17,6 @@
     = f.number_field :points
   .field
     = f.label :language_id
-    = f.select 'language', options_from_collection_for_select(Language.all, "id", "name")
+    = f.select 'language_id', options_from_collection_for_select(Language.all, "id", "name")
   .actions
     = f.submit 'Save', class: "ui-button ui-widget"

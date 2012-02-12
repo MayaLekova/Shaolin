@@ -11,7 +11,7 @@ p
   = @lesson.points
 p
   b Language:
-  = @lesson.language.name
+  = link_to @lesson.language.name, language_path(@lesson.language)
 
 = link_to 'Edit', edit_lesson_path(@lesson)
 '|

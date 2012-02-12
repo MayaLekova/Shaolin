@@ -15,7 +15,7 @@ table.list-table
       td= lesson.title
       td= lesson.description
       td= lesson.points
-      td= lesson.language.name
+      td= link_to lesson.language.name, language_path(lesson.language)
       td= link_to 'Show', lesson
       td= link_to 'Edit', edit_lesson_path(lesson)
       td= link_to 'Destroy', lesson, :confirm => 'Are you sure?', :method => :delete
