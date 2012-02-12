@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  b Title:
+  = @lesson.title
+p
+  b Description:
+  = @lesson.description
+p
+  b Points:
+  = @lesson.points
+p
+  b Language:
+  = @lesson.language.name
+
+= link_to 'Edit', edit_lesson_path(@lesson)
+'|
+= link_to 'Back', lessons_path

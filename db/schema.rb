@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211202353) do
+ActiveRecord::Schema.define(:version => 20120212115020) do
 
   create_table "languages", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(:version => 20120211202353) do
     t.string   "command"
     t.string   "file_extension"
     t.text     "wrapping_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lessons", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "points"
+    t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

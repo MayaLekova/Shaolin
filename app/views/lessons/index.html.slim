@@ -1,0 +1,26 @@
+h1 Listing lessons
+
+table.list-table
+  tr
+    th.ui-corner-tl Title
+    th Description
+    th Points
+    th Language
+    th
+    th
+    th.ui-corner-tr
+
+  - @lessons.each do |lesson|
+    tr
+      td= lesson.title
+      td= lesson.description
+      td= lesson.points
+      td= lesson.language.name
+      td= link_to 'Show', lesson
+      td= link_to 'Edit', edit_lesson_path(lesson)
+      td= link_to 'Destroy', lesson, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+button.ui-button.ui-widget
+  = link_to 'New Lesson', new_lesson_path, class: "ui-button-text-only"
