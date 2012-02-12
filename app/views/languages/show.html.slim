@@ -16,6 +16,7 @@ p
   b Wrapping code:
   = @language.wrapping_code
 
-= link_to 'Edit', edit_language_path(@language)
-'|
-= link_to 'Back', languages_path
+button.ui-button.ui-widget
+  = link_to 'Edit', edit_language_path(@language), class: "ui-button-text-only"
+button.ui-button.ui-widget
+  = link_to 'Back', languages_path, class: "ui-button-text-only"
