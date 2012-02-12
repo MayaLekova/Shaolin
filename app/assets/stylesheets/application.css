@@ -12,6 +12,10 @@ body {
   font-size: 16px;
 }
 
+header div {
+  overflow: hidden;
+}
+
 div {
   overflow: auto;
 }
