@@ -16,3 +16,6 @@
 
 #Ignore temporary vim files
 *.swp
+
+#Ignore data from simplecov
+coverage
