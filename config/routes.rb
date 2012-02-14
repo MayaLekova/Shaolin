@@ -2,6 +2,7 @@ Shaolin::Application.routes.draw do
   resources :lessons
 
   resources :languages
+  match "language/compile" => "languages#compile"
 
   #~ get "lesson/list"
   #~ post "lesson/create"

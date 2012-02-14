@@ -10,6 +10,33 @@ class LanguagesController < ApplicationController
     end
   end
 
+  def compile
+    sourceCode = params[:code]
+    sourceFile = File.open("temp.cpp", "w")
+    sourceFile.syswrite(sourceCode)
+    sourceFile.close
+    
+    @result = {}
+    @result['compileStatus'] = system "g++ temp.cpp -o temp.exe > sys_output.txt"
+    system "temp.exe > output.txt"
+    
+    fileEmpty = true
+    IO.foreach("output.txt"){|block|
+      if block == "Na baba CPP prilojenieto!!!!!!!!" then
+	@result['message'] = "Correct"
+      else
+	@result['message'] = "Wrong!"
+      end
+      fileEmpty = false
+    }
+    if fileEmpty then @result['message'] = "Empty output file" end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @result }
+    end
+  end
+    
   # GET /languages/1
   # GET /languages/1.json
   def show
