@@ -16,6 +16,14 @@ header div {
   overflow: hidden;
 }
 
+#session_info {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-family: 'Courier New';
+  font-size: 12px;
+}
+
 #notice {
   font-weight: bold;
   color: #040;
