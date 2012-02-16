@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212115020) do
+ActiveRecord::Schema.define(:version => 20120216182354) do
 
   create_table "languages", :force => true do |t|
     t.string   "name"
@@ -31,5 +31,27 @@ ActiveRecord::Schema.define(:version => 20120212115020) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "paragraphs", :force => true do |t|
+    t.integer  "position"
+    t.text     "body"
+    t.integer  "lesson_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "paragraphs", ["lesson_id"], :name => "index_paragraphs_on_lesson_id"
+
+  create_table "tasks", :force => true do |t|
+    t.integer  "position"
+    t.text     "input"
+    t.text     "output"
+    t.text     "expectation"
+    t.integer  "lesson_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["lesson_id"], :name => "index_tasks_on_lesson_id"
 
 end
