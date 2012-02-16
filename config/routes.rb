@@ -1,4 +1,5 @@
 Shaolin::Application.routes.draw do
+  resources :users
   resources :lessons
 
   resources :languages

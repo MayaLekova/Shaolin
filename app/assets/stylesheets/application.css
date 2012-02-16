@@ -16,6 +16,16 @@ header div {
   overflow: hidden;
 }
 
+#notice {
+  font-weight: bold;
+  color: #040;
+}
+
+#error_explanation {
+  font-weight: bold;
+  color: #c00;
+}
+
 div {
   overflow: auto;
 }

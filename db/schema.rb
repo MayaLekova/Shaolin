@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212115020) do
+ActiveRecord::Schema.define(:version => 20120216214248) do
 
   create_table "languages", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(:version => 20120212115020) do
     t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_digest"
+    t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_admin",        :default => false
   end
 
 end
