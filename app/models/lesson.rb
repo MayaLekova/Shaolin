@@ -4,4 +4,9 @@ class Lesson < ActiveRecord::Base
   
   has_many :paragraphs
   has_many :tasks
+
+  def components
+    (paragraphs + tasks).sort { |component1, component2| component1.position <=> component2.position }
+  end
+
 end

@@ -13,6 +13,17 @@ p
   b Language:
   = link_to @lesson.language.name, language_path(@lesson.language)
 
+p
+  b Components:
+  -for component in  @lesson.components
+    -if component.is_a? Paragraph
+      p
+        b Paragrah:
+        = component.body
+    -else
+      p Task:
+        p = component.input
+
 = link_to 'Edit', edit_lesson_path(@lesson)
 '|
 = link_to 'Back', lessons_path
