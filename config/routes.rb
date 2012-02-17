@@ -1,4 +1,8 @@
 Shaolin::Application.routes.draw do
+  get "execution/execute"
+
+  get "execution/match"
+
   resources :sessions
   resources :users
   resources :lessons do
@@ -7,7 +11,7 @@ Shaolin::Application.routes.draw do
   end
 
   resources :languages
-  match "language/compile" => "languages#compile"
+  match "language/compile" => "execution#execute"
 
   #~ get "lesson/list"
   #~ post "lesson/create"

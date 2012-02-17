@@ -9,51 +9,7 @@ class LanguagesController < ApplicationController
       format.json { render json: @languages }
     end
   end
-
-=begin
-AJAX query for Python:
-$.ajax({
-type:'POST',
-url:'http://localhost:3000/language/compile',
-'data': {'code': 'a = 42; print(a)'},
-'success': function() {console.log(arguments)},
-'dataType': 'json'
-});
-=end
-
-  def compile
-    sourceCode = params[:code]
-    #sourceFile = File.open("temp.cpp", "w")
-    sourceFile = File.open("temp.py", "w")
-    sourceFile.syswrite(sourceCode)
-    sourceFile.close
-    
-    @result = {}
-    # ========== C++ ==========
-    #@result['compileStatus'] = system "g++ temp.cpp -o temp.exe > compiler_output.txt"
-    #system "temp.exe > output.txt"
-    
-    # ========== Python ==========
-    @result['compileStatus'] = system "python temp.py > output.txt"
-    
-    fileEmpty = true
-    IO.foreach("output.txt"){|block|
-      #if block == "Na baba CPP prilojenieto!!!!!!!!" then
-      if block.match "42" then
-	@result['message'] = "Correct"
-      else
-	@result['message'] = "Wrong!"
-      end
-      fileEmpty = false
-    }
-    if fileEmpty then @result['message'] = "Empty output file" end
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @result }
-    end
-  end
-    
+     
   # GET /languages/1
   # GET /languages/1.json
   def show
