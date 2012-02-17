@@ -24,7 +24,7 @@ table.list-table
         td= link_to 'Edit', edit_lesson_path(lesson)
         td= link_to 'Destroy', lesson, :confirm => 'Are you sure?', :method => :delete
       -else
-        td= link_to 'Take', "take/#{lesson.id}"
+        td= link_to 'Take', "/lessons/take/#{lesson.id}"
 
 br
 
