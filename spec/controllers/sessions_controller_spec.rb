@@ -11,7 +11,7 @@ describe SessionsController do
 
   describe "GET 'destroy'" do
     it "returns http success" do
-      get 'destroy'
+      post 'destroy'
       response.should be_success
     end
   end
