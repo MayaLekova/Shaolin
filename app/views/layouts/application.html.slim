@@ -15,6 +15,9 @@ html
           =link_to 'Log out', session_path(1), :method => :delete
         -else
           =link_to 'Log in', new_session_path
+
+    #error_explanation
+      p = flash[:error]
     
     div[id="main"]
       nav[class="main-menu centered left"]

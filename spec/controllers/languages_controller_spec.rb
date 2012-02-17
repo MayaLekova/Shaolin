@@ -26,7 +26,8 @@ describe LanguagesController do
   def valid_attributes
     {
       name: 'language name',
-      command: 'dedo %{source_file} > %{output_file}'
+      command: 'dedo %{source_file} > %{output_file}',
+      file_extension: 'de'
     }
   end
   
@@ -35,6 +36,10 @@ describe LanguagesController do
   # LanguagesController. Be sure to keep this updated too.
   def valid_session
     {}
+  end
+
+  before do
+    controller.stub(:current_user => double({:is_admin? => true}))
   end
 
   describe "GET index" do

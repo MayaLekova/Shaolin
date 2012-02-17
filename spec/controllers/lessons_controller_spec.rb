@@ -39,7 +39,9 @@ describe LessonsController do
 
   before do
     Language.stub(:find).and_return Factory :language
+    controller.stub(:current_user => double({:is_admin? => true}))
   end
+
 
   describe "GET index" do
     it "assigns all lessons as @lessons" do

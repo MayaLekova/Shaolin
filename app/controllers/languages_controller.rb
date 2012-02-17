@@ -1,4 +1,5 @@
 class LanguagesController < ApplicationController
+  before_filter :require_admin
   # GET /languages
   # GET /languages.json
   def index
