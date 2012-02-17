@@ -22,7 +22,7 @@ class ExecutionController < ApplicationController
     
     @result = {}
 
-    @result['compileStatus'] = system language.command.gsub("%{source_file}", source_file_name) + "> output.txt"
+    @result['compileStatus'] = system language.command % {source_file: source_file_name} + "> output.txt"
     @result['output'] = ""
     
     IO.foreach("output.txt"){|block|
