@@ -6,9 +6,12 @@ table.list-table
     th Description
     th Points
     th Language
-    th
-    th
-    th.ui-corner-tr
+    -if controller.logged_in_as_admin?
+      th
+      th
+      th.ui-corner-tr
+    -else
+      th.ui-corner-tr
 
   - @lessons.each do |lesson|
     tr
@@ -16,9 +19,12 @@ table.list-table
       td= lesson.description
       td= lesson.points
       td= link_to lesson.language.name, language_path(lesson.language)
-      td= link_to 'Show', lesson
-      td= link_to 'Edit', edit_lesson_path(lesson)
-      td= link_to 'Destroy', lesson, :confirm => 'Are you sure?', :method => :delete
+      -if controller.logged_in_as_admin?
+        td= link_to 'Show', lesson
+        td= link_to 'Edit', edit_lesson_path(lesson)
+        td= link_to 'Destroy', lesson, :confirm => 'Are you sure?', :method => :delete
+      -else
+        td= link_to 'Take', "take/#{lesson.id}"
 
 br
 
