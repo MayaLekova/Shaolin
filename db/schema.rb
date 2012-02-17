@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216214248) do
+ActiveRecord::Schema.define(:version => 20120217231610) do
 
   create_table "languages", :force => true do |t|
     t.string   "name"
@@ -32,16 +32,6 @@ ActiveRecord::Schema.define(:version => 20120216214248) do
     t.datetime "updated_at"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "password_digest"
-    t.integer  "points"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "is_admin",        :default => false
-  end
-
   create_table "paragraphs", :force => true do |t|
     t.integer  "position"
     t.text     "body"
@@ -54,9 +44,9 @@ ActiveRecord::Schema.define(:version => 20120216214248) do
 
   create_table "tasks", :force => true do |t|
     t.integer  "position"
-    t.text     "input"
-    t.text     "output"
-    t.text     "expectation"
+    t.text     "input",       :default => ""
+    t.text     "output",      :default => ""
+    t.text     "expectation", :default => ""
     t.integer  "lesson_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -64,5 +54,14 @@ ActiveRecord::Schema.define(:version => 20120216214248) do
 
   add_index "tasks", ["lesson_id"], :name => "index_tasks_on_lesson_id"
 
-end
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_digest"
+    t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_admin",        :default => false
+  end
 
+end
