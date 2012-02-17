@@ -16,7 +16,7 @@ table.list-table
       td= paragraph.position
       td= link_to 'Show', paragraph
       td= link_to 'Edit', edit_paragraph_path(paragraph)
-      td= link_to 'Destroy', @paragraphs, :confirm => 'Are you sure?', :method => :delete
+      td= link_to 'Destroy', paragraph, :confirm => 'Are you sure?', :method => :delete
 
 br
 
