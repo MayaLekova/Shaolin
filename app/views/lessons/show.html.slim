@@ -21,8 +21,9 @@ p
         b Paragraph:
         = component.body
     -else
-      p Task:
-        p = component.input
+      p 
+        b Task:
+        = component.input
 
 = link_to 'Edit', edit_lesson_path(@lesson)
 '|
