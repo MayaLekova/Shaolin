@@ -18,6 +18,9 @@ class ExecutionController < ApplicationController
     
     source_file_name = "temp." + language.file_extension
     source_code = params[:code]
+    if language.wrapping_code then
+      source_code = language.wrapping_code % {user_input: source_code}
+    end
     save_source(source_file_name, source_code)
     
     @result = {}
