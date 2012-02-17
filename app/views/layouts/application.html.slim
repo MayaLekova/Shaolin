@@ -23,9 +23,10 @@ html
       nav[class="main-menu centered left"]
         a[class="ui-corner-all" href='/'] Home
         a[class="ui-corner-all" href='/lessons'] Lessons
-        a[class="ui-corner-all" href='/languages'] Languages
-        a[class="ui-corner-all" href='/tasks'] Tasks
-        a[class="ui-corner-all" href='/paragraphs'] Paragraphs
+        -if controller.logged_in_as_admin?
+          a[class="ui-corner-all" href='/tasks'] Tasks
+          a[class="ui-corner-all" href='/paragraphs'] Paragraphs
+          a[class="ui-corner-all" href='/languages'] Languages
 
       #content.ui-corner-right.right
         p#notice =notice
