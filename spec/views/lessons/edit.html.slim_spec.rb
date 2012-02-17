@@ -11,6 +11,8 @@ describe "lessons/edit" do
   end
 
   before do
+    session[:user_id] = 1
+    User.stub(:find).and_return Factory :admin
     Language.stub(:find).and_return Factory :language
   end
 
