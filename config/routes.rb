@@ -1,7 +1,10 @@
 Shaolin::Application.routes.draw do
   resources :sessions
   resources :users
-  resources :lessons
+  resources :lessons do
+    resources :paragraphs
+    resources :tasks
+  end
 
   resources :languages
   match "language/compile" => "languages#compile"
