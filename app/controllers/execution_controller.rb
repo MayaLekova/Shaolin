@@ -50,7 +50,7 @@ class ExecutionController < ApplicationController
 
   def match(id)
     task = Task.find(id)
-    
+
     if not task.output.empty? then
       if @result['output'] == task.output then
         @result['message'] = "Correct"

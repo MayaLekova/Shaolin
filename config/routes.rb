@@ -22,6 +22,7 @@ Shaolin::Application.routes.draw do
   get "execution/execute"
 
   get "execution/match"
+  match "lessons/take/:id" => "lessons#take"
 
   resources :sessions
   resources :users

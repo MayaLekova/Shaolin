@@ -1,0 +1,15 @@
+#title
+  span Language: 
+  b = @lesson.title
+  
+-for component in @lesson.components
+  -if component.is_a? Paragraph
+    div.paragraph-container
+      p.lesson-paragraph =component.body
+  -else #then it's a task
+    div.task-container[data-id="#{component.id}"]
+      = text_area_tag "code_for_#{component.id}", component.input, :class => "code-text-area"
+      p.failure_feedback.none
+      p.success_feedback.none Great job!
+      button.submit-code.ui-button.ui-widget
+        a.ui-button-text-only[href="/language/compile"] GO!

@@ -1,5 +1,9 @@
 class LessonsController < ApplicationController
-  before_filter :require_admin
+  before_filter :require_admin, :except => [:take]
+
+  def take
+    @lesson = Lesson.find params[:id]  
+  end
 
   # GET /lessons
   # GET /lessons.json
