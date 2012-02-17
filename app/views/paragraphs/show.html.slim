@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  b Body:
+  = @paragraph.body
+p
+  b Position:
+  = @paragraph.position
+p
+  b Lesson:
+  = link_to @paragraph.lesson.title, lesson_path(@paragraph.lesson)
+
+= link_to 'Edit', edit_paragraph_path(@paragraph)
+'|
+= link_to 'Back', paragraphs_path

@@ -1,14 +1,33 @@
 Shaolin::Application.routes.draw do
+  #~ get "paragraphs/new"
+
+  #~ get "paragraphs/edit"
+
+  #~ get "paragraphs/create"
+
+  #~ get "paragraphs/update"
+
+  #~ get "paragraphs/destroy"
+
+  #~ get "tasks/new"
+
+  #~ get "tasks/edit"
+
+  #~ get "tasks/create"
+
+  #~ get "tasks/update"
+
+  #~ get "tasks/destroy"
+
   get "execution/execute"
 
   get "execution/match"
 
   resources :sessions
   resources :users
-  resources :lessons do
-    resources :paragraphs
-    resources :tasks
-  end
+  resources :lessons
+  resources :paragraphs
+  resources :tasks
 
   resources :languages
   match "language/compile" => "execution#execute"

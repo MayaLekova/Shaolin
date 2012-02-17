@@ -1,0 +1,28 @@
+h1 Listing tasks
+
+table.list-table
+  tr
+    th.ui-corner-tl Input
+    th Output
+    th Expectation
+    th Lesson
+    th Position
+    th
+    th
+    th.ui-corner-tr
+
+  - @tasks.each do |task|
+    tr
+      td= task.input
+      td= task.output
+      td= task.expectation
+      td= link_to task.lesson.title, lesson_path(task.lesson)
+      td= task.position
+      td= link_to 'Show', task
+      td= link_to 'Edit', edit_task_path(task)
+      td= link_to 'Destroy', @tasks, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+button.ui-button.ui-widget
+  = link_to 'New Task', new_task_path, class: "ui-button-text-only"

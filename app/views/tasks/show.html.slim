@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  b Input:
+  = @task.input
+p
+  b Output:
+  = @task.output
+p
+  b Expectation:
+  = @task.expectation
+p
+  b Position:
+  = @task.position
+p
+  b Lesson:
+  = link_to @task.lesson.title, lesson_path(@task.lesson)
+
+= link_to 'Edit', edit_task_path(@task)
+'|
+= link_to 'Back', tasks_path

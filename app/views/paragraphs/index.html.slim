@@ -1,0 +1,24 @@
+h1 Listing paragraphs
+
+table.list-table
+  tr
+    th.ui-corner-tl Body
+    th Lesson
+    th Position
+    th
+    th
+    th.ui-corner-tr
+
+  - @paragraphs.each do |paragraph|
+    tr
+      td= paragraph.body
+      td= link_to paragraph.lesson.title, lesson_path(paragraph.lesson)
+      td= paragraph.position
+      td= link_to 'Show', paragraph
+      td= link_to 'Edit', edit_paragraph_path(paragraph)
+      td= link_to 'Destroy', @paragraphs, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+button.ui-button.ui-widget
+  = link_to 'New Paragraph', new_paragraph_path, class: "ui-button-text-only"
