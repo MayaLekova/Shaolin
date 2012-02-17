@@ -3,10 +3,10 @@ require 'spec_helper'
 describe "lessons/new" do
   before(:each) do
     assign(:lesson, stub_model(Lesson,
-      :title => "MyString",
-      :description => "MyString",
-      :points => 1,
-      :language_id => 1
+      :title => nil,
+      :description => nil,
+      :points => nil,
+      :language_id => nil
     ).as_new_record)
   end
 

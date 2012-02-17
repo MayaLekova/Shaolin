@@ -9,6 +9,12 @@ html
     header
       div[class="ui-helper-clearfix"]
         img[src=path_to_image("header.png") class="header"]
+      div[id="session_info"]
+        -if logged_in?
+          p ="logged in as #{current_user.username}"
+          =link_to 'Log out', session_path(1), :method => :delete
+        -else
+          =link_to 'Log in', new_session_path
     
     div[id="main"]
       nav[class="main-menu centered left"]
@@ -16,7 +22,8 @@ html
         a[class="ui-corner-all" href='/lessons'] Lessons
         a[class="ui-corner-all" href='/languages'] Languages
 
-      div[id="content" class="ui-corner-right right"]
+      #content.ui-corner-right.right
+        p#notice =notice
         = yield
 
     footer
