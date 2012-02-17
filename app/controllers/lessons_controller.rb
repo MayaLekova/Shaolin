@@ -1,4 +1,6 @@
 class LessonsController < ApplicationController
+  before_filter :require_admin
+
   # GET /lessons
   # GET /lessons.json
   def index
