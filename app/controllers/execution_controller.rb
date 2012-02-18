@@ -27,7 +27,7 @@ class ExecutionController < ApplicationController
     source_file.close
   end
 
-  def match(id)
+  def match
     if not task.expected.empty? then
       if @result['output'] == task.expected then
         @result['message'] = "Correct"
