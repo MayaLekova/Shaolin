@@ -38,4 +38,15 @@ $(document).on 'click', '.submit-code', ->
 
 $(document).on 'click', '#claim-points', ->
     $this = $(this)
-    alert 'Soon, my child...'
+
+    $.ajax(
+      type: 'POST',
+      url: $this.find('a').attr('href'),
+      dataType: 'json',
+      success: (data, textStatus, jqXHR) ->
+        if data.status is 'OK'
+            alert 'There you go now!'
+        else
+            alert 'Nope...'
+    )
+    return false

@@ -19,6 +19,8 @@ Shaolin::Application.routes.draw do
 
   #~ get "tasks/destroy"
 
+  post "users/:user_id/give_points/:lesson_id" => "users#give_points"
+
   get "execution/execute"
 
   get "execution/match"

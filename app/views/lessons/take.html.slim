@@ -17,4 +17,4 @@
 
 -if controller.logged_in?
   button#claim-points.ui-button.ui-widget
-    a.ui-button-text-only[href=""] Claim your points
+    a.ui-button-text-only[href="/users/#{session[:user_id]}/give_points/#{@lesson.id}"] Claim your points
