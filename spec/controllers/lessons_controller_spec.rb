@@ -50,6 +50,17 @@ describe LessonsController do
       get :index, {}, valid_session
       assigns(:lessons).should eq([lesson])
     end
+
+    context "when not logged in" do
+      before do
+        controller.stub(:logged_in? => false)
+      end
+
+      it "redirects to the login page" do
+        get 'index'
+        response.should redirect_to '/sessions/new'
+      end
+    end
   end
 
   describe "GET show" do
@@ -65,6 +76,17 @@ describe LessonsController do
       get :new, {}, valid_session
       assigns(:lesson).should be_a_new(Lesson)
     end
+
+    context "when not logged in as administrator" do
+      before do
+        controller.stub(:current_user => double({:is_admin? => false}))
+      end
+
+      it "should redirect to root url" do
+        get :new
+        response.should redirect_to root_url
+      end
+    end
   end
 
   describe "GET edit" do
@@ -72,6 +94,17 @@ describe LessonsController do
       lesson = Lesson.create! valid_attributes
       get :edit, {:id => lesson.to_param}, valid_session
       assigns(:lesson).should eq(lesson)
+    end
+
+    context "when not logged in as administrator" do
+      before do
+        controller.stub(:current_user => double({:is_admin? => false}))
+      end
+
+      it "should redirect to root url" do
+        post :edit, { :id => 1 }, valid_session
+        response.should redirect_to root_url
+      end
     end
   end
 

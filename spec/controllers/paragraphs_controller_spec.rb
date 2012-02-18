@@ -2,6 +2,13 @@ require 'spec_helper'
 
 describe ParagraphsController do
 
+  let(:valid_params) { { :body => 'paragraph body', :position => 1, :lesson_id => 1 } }
+
+  before do
+    Paragraph.stub(:find).and_return Factory :paragraph
+
+  end
+
   describe "GET 'new'" do
     it "returns http success" do
       get 'new'
@@ -11,14 +18,14 @@ describe ParagraphsController do
 
   describe "GET 'edit'" do
     it "returns http success" do
-      get 'edit'
+      get 'edit', {:id => 1}
       response.should be_success
     end
   end
 
-  describe "GET 'create'" do
+  describe "POST 'create'" do
     it "returns http success" do
-      get 'create'
+      post 'create', valid_params
       response.should be_success
     end
   end
@@ -31,8 +38,9 @@ describe ParagraphsController do
   end
 
   describe "GET 'destroy'" do
+
     it "returns http success" do
-      get 'destroy'
+      delete 'destroy' { id => 1 }
       response.should be_success
     end
   end
