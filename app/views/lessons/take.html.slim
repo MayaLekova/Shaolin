@@ -1,6 +1,8 @@
 #title
   span Language: 
   b = @lesson.title
+  ' 
+  = "Points: #{@lesson.points}"
   
 -for component in @lesson.components
   -if component.is_a? Paragraph

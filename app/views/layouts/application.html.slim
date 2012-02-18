@@ -11,7 +11,7 @@ html
         img[src=path_to_image("header.png") class="header"]
       div[id="session_info"]
         -if logged_in?
-          p ="logged in as #{current_user.username}"
+          p ="logged in as #{current_user.username}, points: #{current_user.points}"
           =link_to 'Log out', session_path(1), :method => :delete
         -else
           =link_to 'Log in', new_session_path
