@@ -20,7 +20,7 @@ describe ApplicationHelper do
     end
   end
 
-  describe "logged_in_as_admin" do
+  describe "is_admin?" do
     context "if logged in as admin" do
       before do
         session[:user_id] = 1
@@ -28,7 +28,7 @@ describe ApplicationHelper do
       end
 
       it "returns true" do
-        logged_in_as_admin?.should_not be_nil
+        is_admin?.should be_true
       end
     end
   end
