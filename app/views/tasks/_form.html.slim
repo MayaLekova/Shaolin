@@ -7,14 +7,14 @@
           li= msg
 
   .field
-    = f.label :input
-    = f.text_field :input
+    = f.label :initial_code
+    = f.text_area :initial_code, :style => "height: 5em;"
   .field
-    = f.label :output
-    = f.text_field :output
+    = f.label :expected
+    = f.text_field :expected
   .field
-    = f.label :expectation
-    = f.text_field :expectation
+    = f.label :hint
+    = f.text_field :hint
   .field
     = f.label :position
     = f.number_field :position

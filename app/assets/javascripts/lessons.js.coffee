@@ -9,6 +9,7 @@ $(document).on 'click', '.submit-code', ->
 
   $failure_paragraph = $this.closest('.task-container').find('.failure_feedback')
   $success_paragraph = $this.closest('.task-container').find('.success_feedback')
+  $hint_paragraph = $this.closest('.task-container').find('.hint')
   $.ajax(
     type: 'POST',
     url: $this.find('a').attr("href"),
@@ -20,12 +21,14 @@ $(document).on 'click', '.submit-code', ->
     success: (data, textStatus, jqXHR)->
       $failure_paragraph.hide()
       $success_paragraph.hide()
+      $hint_paragraph.hide()
       if not data.compileStatus
         $failure_paragraph.show().text("There was an error running your code")
         return false
       if data.message is 'Correct'
         $success_paragraph.show()
       else
-        $failure_paragraph.show().text("Expected was: #{data.expectation}\nYour code produced: #{data.output}")
+        $failure_paragraph.show().text("Expected was: #{data.expected}\nYour code produced: #{data.output}")
+        $hint_paragraph.show().text(data.hint)
   )
   return false

@@ -12,15 +12,11 @@ url:'http://localhost:3000/language/compile',
 
 class ExecutionController < ApplicationController
   def execute
-    task = Task.find(params[:id])
-    lesson = Lesson.find(task.lesson_id)
-    language = Language.find(lesson.language_id)
-    
     source_file_name = "temp." + language.file_extension
     source_code = language.wrapping_code % {user_input: params[:code]}
     save_source(source_file_name, source_code)
     
-    @result = {}
+    @result = { :expected => task.expected }
 
     @result['compileStatus'] = system language.command % {source_file: source_file_name} + "> output.txt"
     @result['output'] = ""
@@ -41,21 +37,32 @@ class ExecutionController < ApplicationController
   
   def save_source(filename, source_code)
     source_file = File.open(filename, "w")
-    source_file.syswrite(source_code)
+    source_file.syswrite(source_code + "\n")
     source_file.close    
   end
 
   def match(id)
-    task = Task.find(id)
-
-    if not task.output.empty? then
-      if @result['output'] == task.output then
+    if not task.expected.empty? then
+      if @result['output'] == task.expected then
         @result['message'] = "Correct"
       else
         @result['message'] = "Wrong!"
       end
-      @result['expectation'] = task.expectation
+      @result['hint'] = task.hint
     end
+  end
+
+  private
+  def task
+    Task.find params[:id]
+  end
+
+  def lesson
+    task.lesson
+  end
+
+  def language
+    lesson.language
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120218001940) do
+ActiveRecord::Schema.define(:version => 20120218005915) do
 
   create_table "languages", :force => true do |t|
     t.string   "name"
@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(:version => 20120218001940) do
 
   create_table "tasks", :force => true do |t|
     t.integer  "position"
-    t.text     "input",       :default => ""
-    t.text     "output",      :default => ""
-    t.text     "expectation", :default => ""
+    t.text     "initial_code", :default => ""
+    t.text     "expected",     :default => ""
+    t.text     "hint",         :default => ""
     t.integer  "lesson_id"
     t.datetime "created_at"
     t.datetime "updated_at"
