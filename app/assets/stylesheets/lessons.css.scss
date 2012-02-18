@@ -10,8 +10,13 @@
   color: #500;
 }
 
+.task-container {
+  width: 100%;
+  overflow: auto;
+}
+
 .code-text-area {
   width: 80%;
   display: block;
-  width: 10em;
+  height: 10em;
 }
