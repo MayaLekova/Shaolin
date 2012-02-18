@@ -51,13 +51,13 @@ class ExecutionController < ApplicationController
   def match(id)
     task = Task.find(id)
 
-    if not task.output.empty? then
-      if @result['output'] == task.output then
+    if not task.expected.empty? then
+      if @result['output'] == task.expected then
         @result['message'] = "Correct"
       else
         @result['message'] = "Wrong!"
       end
-      @result['expectation'] = task.expectation
+      @result['hint'] = task.hint
     end
   end
 

@@ -13,9 +13,9 @@ table.list-table
 
   - @tasks.each do |task|
     tr
-      td= task.input
-      td= task.output
-      td= task.expectation
+      td= task.initial_code
+      td= task.expected
+      td= task.hint
       td= link_to task.lesson.title, lesson_path(task.lesson)
       td= task.position
       td= link_to 'Show', task

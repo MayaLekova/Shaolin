@@ -8,8 +8,9 @@
       p.lesson-paragraph =component.body
   -else #then it's a task
     div.task-container[data-id="#{component.id}"]
-      = text_area_tag "code_for_#{component.id}", component.input, :class => "code-text-area"
+      = text_area_tag "code_for_#{component.id}", component.initial_code, :class => "code-text-area"
       p.failure_feedback.none
+      p.hint
       p.success_feedback.none Great job!
       button.submit-code.ui-button.ui-widget
         a.ui-button-text-only[href="/language/compile"] GO!
