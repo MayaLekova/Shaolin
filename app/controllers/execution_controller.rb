@@ -1,15 +1,3 @@
-=begin
-AJAX query for Python:
-$.ajax({
-type:'POST',
-url:'http://localhost:3000/language/compile',
-'data': {'id': 1, 'code': 'a = 42; print(a)'},
-'success': function() {console.log(arguments)},
-'dataType': 'json'
-});
-
-=end
-
 class ExecutionController < ApplicationController
   def execute
     source_file_name = "temp." + language.file_extension
@@ -33,12 +21,10 @@ class ExecutionController < ApplicationController
     end
   end
   
-  private
-  
-  def save_source(filename, source_code)
-    source_file = File.open(filename, "w")
+  def save_source(file_name, source_code)
+    source_file = File.open(file_name, "w")
     source_file.syswrite(source_code + "\n")
-    source_file.close    
+    source_file.close
   end
 
   def match(id)
