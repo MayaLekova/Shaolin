@@ -15,5 +15,6 @@
       button.submit-code.ui-button.ui-widget
         a.ui-button-text-only[href="/language/compile"] GO!
 
-button#claim-points.ui-button.ui-widget
-  a.ui-button-text-only[href=""] Claim your points
+-if controller.logged_in?
+  button#claim-points.ui-button.ui-widget
+    a.ui-button-text-only[href=""] Claim your points
