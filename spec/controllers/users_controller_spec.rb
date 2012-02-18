@@ -43,4 +43,23 @@ describe UsersController do
     end
   end
 
+  describe "POST 'give_points'" do
+    let(:user) { Factory :user }
+    let(:lesson) { Factory :lesson }
+    context "given a valid user and lesson" do
+
+      before do
+        User.stub(:find).and_return user
+        Language.stub(:find).and_return Factory :language
+        Lesson.stub(:find).and_return lesson
+      end
+
+      it "grants the user points for the lesson" do
+        expect {
+          post 'give_points', :user_id => 1, :lesson_id => 1
+        }.to change(user, :points).by(lesson.points)
+      end
+    end
+  end
+
 end
