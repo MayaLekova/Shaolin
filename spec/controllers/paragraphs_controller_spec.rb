@@ -40,7 +40,7 @@ describe ParagraphsController do
   describe "GET 'destroy'" do
 
     it "returns http success" do
-      delete 'destroy' { id => 1 }
+      delete 'destroy', { id => 1 }
       response.should be_success
     end
   end
