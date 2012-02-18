@@ -38,15 +38,22 @@ $(document).on 'click', '.submit-code', ->
 
 $(document).on 'click', '#claim-points', ->
     $this = $(this)
+    done = true
+    $('.task-container').each ->
+        if not $(this).attr('data-done')
+            done = false
 
-    $.ajax(
-      type: 'POST',
-      url: $this.find('a').attr('href'),
-      dataType: 'json',
-      success: (data, textStatus, jqXHR) ->
-        if data.status is 'OK'
-            alert 'There you go now!'
-        else
-            alert 'Nope...'
-    )
+    if done
+      $.ajax(
+        type: 'POST',
+        url: $this.find('a').attr('href'),
+        dataType: 'json',
+        success: (data, textStatus, jqXHR) ->
+          if data.status is 'OK'
+              alert 'There you go now!'
+          else
+              alert 'Nope...'
+      )
+    else
+      alert 'NO!'
     return false
