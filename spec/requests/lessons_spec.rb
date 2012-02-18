@@ -11,7 +11,7 @@ describe "Lessons" do
 
       it "redirects to the index" do
         get lessons_path
-        response.should redirect_to root_url
+        response.should redirect_to '/sessions/new'
       end
     end
   end

@@ -50,6 +50,17 @@ describe LessonsController do
       get :index, {}, valid_session
       assigns(:lessons).should eq([lesson])
     end
+
+    context "when not logged in" do
+      before do
+        controller.stub(:logged_in? => false)
+      end
+
+      it "redirects to the login page" do
+        get 'index'
+        response.should redirect_to '/sessions/new'
+      end
+    end
   end
 
   describe "GET show" do

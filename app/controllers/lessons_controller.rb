@@ -1,5 +1,6 @@
 class LessonsController < ApplicationController
   before_filter :require_admin, :except => [:take, :index]
+  before_filter :require_login, :only => [:index]
 
   def take
     @lesson = Lesson.find params[:id]  
