@@ -12,10 +12,6 @@ url:'http://localhost:3000/language/compile',
 
 class ExecutionController < ApplicationController
   def execute
-    task = Task.find(params[:id])
-    lesson = Lesson.find(task.lesson_id)
-    language = Language.find(lesson.language_id)
-    
     source_file_name = "temp." + language.file_extension
     source_code = params[:code]
     if language.wrapping_code then
@@ -49,8 +45,6 @@ class ExecutionController < ApplicationController
   end
 
   def match(id)
-    task = Task.find(id)
-
     if not task.expected.empty? then
       if @result['output'] == task.expected then
         @result['message'] = "Correct"
@@ -59,6 +53,19 @@ class ExecutionController < ApplicationController
       end
       @result['hint'] = task.hint
     end
+  end
+
+  private
+  def task
+    Task.find params[:id]
+  end
+
+  def lesson
+    task.lesson
+  end
+
+  def language
+    lesson.language
   end
 
 end
