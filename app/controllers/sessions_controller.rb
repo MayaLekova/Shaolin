@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to root_url, :notice => 'Logged in!'
     else
       flash[:error] = "Invalid username/password"
-      render "new"
+      redirect_to "new"
     end
   end
 
