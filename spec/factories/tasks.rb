@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :task do
-    input "MyText"
-    output "MyText"
-    expectation "MyText"
+    initial_code "MyText"
+    expected "MyText"
+    hint "MyText"
   end
 end

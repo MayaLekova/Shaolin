@@ -4,8 +4,8 @@ FactoryGirl.define do
   factory :language do
     name "MyString"
     description "MyString"
-    command "baba %{source_file} > %{output_file}"
+    command "baba %{source_file}"
     file_extension "MyString"
-    wrapping_code "MyText"
+    wrapping_code "%{user_input}"
   end
 end

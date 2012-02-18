@@ -13,10 +13,9 @@ class ExecutionController < ApplicationController
       @result['output'] += block.strip
     }
     
-    match(params[:id])
+    match
     
     respond_to do |format|
-      format.html # index.html.erb
       format.json { render json: @result }
     end
   end
