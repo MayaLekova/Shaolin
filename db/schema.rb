@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20120218091312) do
     t.string   "description"
     t.string   "command"
     t.string   "file_extension"
-    t.text     "wrapping_code"
+    t.text     "wrapping_code",  :default => "%{user_input}"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

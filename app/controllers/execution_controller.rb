@@ -13,10 +13,7 @@ url:'http://localhost:3000/language/compile',
 class ExecutionController < ApplicationController
   def execute
     source_file_name = "temp." + language.file_extension
-    source_code = params[:code]
-    if language.wrapping_code then
-      source_code = language.wrapping_code % {user_input: source_code}
-    end
+    source_code = language.wrapping_code % {user_input: params[:code]}
     save_source(source_file_name, source_code)
     
     @result = { :expected => task.expected }
