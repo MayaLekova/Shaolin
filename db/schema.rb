@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120217231610) do
+ActiveRecord::Schema.define(:version => 20120218001940) do
 
   create_table "languages", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.string   "command"
     t.string   "file_extension"
-    t.text     "wrapping_code"
+    t.text     "wrapping_code",  :default => "%{user_input}"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
