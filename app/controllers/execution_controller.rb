@@ -19,7 +19,7 @@ class ExecutionController < ApplicationController
     end
     save_source(source_file_name, source_code)
     
-    @result = {}
+    @result = { :expected => task.expected }
 
     @result['compileStatus'] = system language.command % {source_file: source_file_name} + "> output.txt"
     @result['output'] = ""
@@ -40,7 +40,7 @@ class ExecutionController < ApplicationController
   
   def save_source(filename, source_code)
     source_file = File.open(filename, "w")
-    source_file.syswrite(source_code)
+    source_file.syswrite(source_code + "\n")
     source_file.close    
   end
 

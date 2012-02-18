@@ -28,7 +28,7 @@ $(document).on 'click', '.submit-code', ->
       if data.message is 'Correct'
         $success_paragraph.show()
       else
-        $failure_paragraph.show().text("Expected was: #{data.output}\nYour code produced: #{data.output}")
+        $failure_paragraph.show().text("Expected was: #{data.expected}\nYour code produced: #{data.output}")
         $hint_paragraph.show().text(data.hint)
   )
   return false
