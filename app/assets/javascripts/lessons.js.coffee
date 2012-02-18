@@ -7,9 +7,10 @@ $(document).on 'click', '.submit-code', ->
   code = $this.closest('.task-container').find('.code-text-area').val()
   task_id = $this.closest('.task-container').attr('data-id')
 
-  $failure_paragraph = $this.closest('.task-container').find('.failure_feedback')
-  $success_paragraph = $this.closest('.task-container').find('.success_feedback')
-  $hint_paragraph = $this.closest('.task-container').find('.hint')
+  $container = $this.closest('.task-container')
+  $failure_paragraph = $container.find('.failure_feedback')
+  $success_paragraph = $container.find('.success_feedback')
+  $hint_paragraph = $container.find('.hint')
   $.ajax(
     type: 'POST',
     url: $this.find('a').attr("href"),
@@ -27,8 +28,14 @@ $(document).on 'click', '.submit-code', ->
         return false
       if data.message is 'Correct'
         $success_paragraph.show()
+        $container.attr('data-done', true)
       else
         $failure_paragraph.show().text("Expected was: #{data.expected}\nYour code produced: #{data.output}")
         $hint_paragraph.show().text(data.hint)
   )
   return false
+
+
+$(document).on 'click', '#claim-points', ->
+    $this = $(this)
+    alert 'Soon, my child...'
