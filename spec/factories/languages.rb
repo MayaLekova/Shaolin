@@ -6,6 +6,6 @@ FactoryGirl.define do
     description "MyString"
     command "baba %{source_file} > %{output_file}"
     file_extension "MyString"
-    wrapping_code "MyText"
+    wrapping_code "%{user_input}"
   end
 end
